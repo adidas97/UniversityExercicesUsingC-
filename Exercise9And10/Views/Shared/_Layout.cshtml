@@ -1,0 +1,33 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/lib/twitter-bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/content/site.css" rel="stylesheet" />
+    <title>@ViewBag.Title - Beauty Shop</title>
+</head>
+<body>
+    <div class="body-content">
+        <nav class="navbar fixed-top">
+            <div>
+                <ul class="nav navbar-expand navbar-nav">
+                    <li>
+                        <a asp-controller="Home" asp-action="Index"
+                           class="navbar-brand">Home</a>
+                    </li>
+                    <li>
+                        <a asp-controller="Products" asp-action="Index"
+                           class="navbar-brand">Products</a>
+                    </li>
+                    <partial name="_LoginPartial" />
+                </ul>
+            </div>
+        </nav>
+        <div>
+            @RenderBody()
+        </div>
+    </div>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

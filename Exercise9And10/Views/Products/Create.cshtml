@@ -1,0 +1,47 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model Lab9.Models.ProductDB
+<h1>@ViewBag.Title</h1>
+<div style="width:300px">
+    <form asp-action="Create">
+        <div asp-validation-summary="ModelOnly"></div>
+        <div>
+            <label asp-for="ProductID"></label><br />
+            <input asp-for="ProductID" /><br />
+            <span asp-validation-for="ProductID"></span>
+        </div>
+        <div>
+            <label asp-for="ProductName"></label><br />
+            <input asp-for="ProductName" /><br />
+            <span asp-validation-for="ProductName"></span>
+        </div>
+        <div>
+            <label asp-for="Description"></label><br />
+            <textarea asp-for="Description"></textarea><br />
+            <span asp-validation-for="Description"></span>
+        </div>
+        <div>
+            <label asp-for="ImagePath"></label><br />
+            <input asp-for="ImagePath" /><br />
+            <span asp-validation-for="ImagePath"></span>
+        </div>
+        <div>
+            <label asp-for="UnitPrice"></label><br />
+            <input asp-for="UnitPrice" /><br />
+            <span asp-validation-for="UnitPrice"></span>
+        </div>
+        <div>
+            <label asp-for="CategoryID"></label><br />
+            <select asp-for="CategoryID" asp-items="ViewBag.CategoryID">
+                <option>Please select</option>
+            </select><br />
+            <span asp-validation-for="CategoryID"></span>
+        </div>
+        <br />
+        <div>
+            <input type="submit" value="Create" class="btn btn-primary" /><br />
+        </div>
+    </form>
+</div>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>

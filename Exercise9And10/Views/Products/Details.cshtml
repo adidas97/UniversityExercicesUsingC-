@@ -1,0 +1,9 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model Lab9.Models.ProductDB
+<h1>@Model.ProductName</h1>
+<img src="/@Model.ImagePath" asp-append-version="true" />
+<h3>@Model.UnitPrice.GetValueOrDefault().ToString("0.00") BGN</h3>
+<h3>@Model.Description</h3>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>

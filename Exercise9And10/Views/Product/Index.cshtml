@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Lab9.Models.Product>
+<h1>@ViewBag.Title</h1>
+<br />
+<table class="table">
+    @{ var i = 0;}
+    <tr>
+        @foreach (var product in Model)
+        {
+            <td>
+                @{ i++;}
+                <img src="@product.ImagePath" alt="" />
+                <br />
+                <h3>@product.ProductName</h3>
+                <h3>
+                    @product.UnitPrice.GetValueOrDefault().ToString("0.00") BGN
+                </h3>
+                <p>@product.Description.</p>
+                @{
+                    switch (@product.CategoryID)
+                    {
+                        case 1:
+                            { <p>Bath & body </p>; break;
+                            }
+                        case 2:
+                            { <p>Skin care</p>; break;
+                            }
+                        case 3:
+                            { <p>Hair care</p>; break;
+                            }
+                    }
+                }
+            </td>
+            if (i == 5)
+            {
+                i = 0;
+            @:</tr>
+            @:<tr>
+            }
+        }
+    </tr>
+</table>

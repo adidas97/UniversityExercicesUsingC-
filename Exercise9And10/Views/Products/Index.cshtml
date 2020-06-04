@@ -1,0 +1,36 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model IEnumerable<Lab9.Models.ProductDB>
+<h1>@ViewBag.Title</h1>
+<br />
+<p><a asp-action="Create">Create New</a></p>
+<table class="table">
+    @{ var i = 0;}
+    <tr>
+        @foreach (var product in Model)
+        {
+            <td>
+                @{i++;}
+                <a asp-action="Details" asp-controller="Products"
+                   asp-route-productID="@product.ProductID">
+                    <img src="/@product.ImagePath" asp-append-version="true"
+                         alt="@product.ProductName" />
+                </a><br />
+                <h3>
+                    <a asp-controller="Products" asp-action="Details"
+                       asp-route-productID="@product.ProductID">
+                        @product.ProductName
+                    </a>
+                </h3>
+                <h3>
+                    @product.UnitPrice.GetValueOrDefault().ToString("0.00") BGN
+                </h3>
+            </td>
+            if (i == 5)
+            {
+                i = 0;
+            @:</tr>
+            @:<tr>
+            }
+        }
+    </tr>
+</table>
